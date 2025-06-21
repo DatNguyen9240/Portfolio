@@ -5,7 +5,7 @@ const row1 = projects.slice(0, 4);
 const row2 = projects.slice(4, 8);
 
 const ProjectCard = () => (
-  <div className="flex-shrink-0 w-[320px] h-[200px] md:w-[400px] md:h-[220px] rounded-2xl bg-white shadow-lg border border-gray-100" />
+  <div className="flex-shrink-0 w-[320px] h-[200px] md:w-[400px] md:h-[220px] rounded-2xl bg-white shadow-card-shadow" />
 );
 
 interface Project {
@@ -60,7 +60,7 @@ export function ProjectsSection() {
         </p>
       </motion.div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         <MarqueeRow projects={row1} direction="left" />
         <MarqueeRow projects={row2} direction="right" />
       </div>
