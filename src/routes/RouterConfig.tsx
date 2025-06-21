@@ -3,22 +3,12 @@ import { lazy } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import AuthLayout from '@/components/layout/AuthLayout';
 import Error from '@/pages/Error/Error';
+import { routeMenuConfig } from '@/config/menu';
 
 // Lazy load components - chỉ tải khi cần thiết
 const Home = lazy(() => import('@/pages/Home'));
 const Login = lazy(() => import('@/pages/Auth/Login'));
 const Register = lazy(() => import('@/pages/Auth/Register'));
-
-export const routeMenuConfig = [
-  {
-    path: '/',
-    label: 'Home',
-    icon: null,
-    element: <Home />,
-    showInMenu: false,
-    badge: null,
-  },
-];
 
 export const RouterConfig = () => {
   return createBrowserRouter([

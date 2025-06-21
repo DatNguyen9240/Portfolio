@@ -7,9 +7,16 @@ interface ButtonProps {
   variant?: 'default' | 'outline';
   className?: string;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
 }
 
-export function Button({ children, variant = 'default', className = '', onClick }: ButtonProps) {
+export function Button({
+  children,
+  variant = 'default',
+  className = '',
+  onClick,
+  type = 'button',
+}: ButtonProps) {
   const baseClasses = 'px-8 py-2 rounded-full transition-colors font-medium';
 
   const variantClasses = {
@@ -20,7 +27,11 @@ export function Button({ children, variant = 'default', className = '', onClick 
   };
 
   return (
-    <button className={`${baseClasses} ${variantClasses[variant]} ${className}`} onClick={onClick}>
+    <button
+      type={type}
+      className={`${baseClasses} ${variantClasses[variant]} ${className}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

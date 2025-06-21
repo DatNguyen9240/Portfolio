@@ -60,7 +60,7 @@ export function BrandsSection() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
         >
-          {brands.map((brand, index) => (
+          {brands.map((brand) => (
             <motion.div
               key={brand.name}
               variants={itemVariants}

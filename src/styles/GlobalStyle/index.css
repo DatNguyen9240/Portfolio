@@ -11,7 +11,7 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #0F102A, #1C0F1C);
+  background: linear-gradient(to bottom, #0f102a, #1c0f1c);
   min-height: 100vh;
   color: white;
   font-family: 'Orbitron', sans-serif; /* hoặc font giống trong hình */
