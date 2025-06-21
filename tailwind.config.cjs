@@ -64,7 +64,7 @@ module.exports = {
   		},
       boxShadow: {
         'card-shadow': '0px 4px 24px -4px rgba(37, 99, 235, 0.12), 0px 2px 8px -2px rgba(37, 99, 235, 0.08)'
-      }
+  		}
   	}
   },
   plugins: [require("tailwindcss-animate")],

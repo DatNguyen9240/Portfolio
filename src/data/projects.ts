@@ -1,0 +1,17 @@
+export const projects = [
+  { id: '1', img: 'https://picsum.photos/id/10/800/1200', url: '#', height: 1200 },
+  { id: '2', img: 'https://picsum.photos/id/11/800/800', url: '#', height: 800 },
+  { id: '3', img: 'https://picsum.photos/id/12/800/1000', url: '#', height: 1000 },
+  { id: '4', img: 'https://picsum.photos/id/13/800/1200', url: '#', height: 1200 },
+  { id: '5', img: 'https://picsum.photos/id/14/800/900', url: '#', height: 900 },
+  { id: '6', img: 'https://picsum.photos/id/15/800/1100', url: '#', height: 1100 },
+  { id: '7', img: 'https://picsum.photos/id/16/800/800', url: '#', height: 800 },
+  { id: '8', img: 'https://picsum.photos/id/17/800/1300', url: '#', height: 1300 },
+  { id: '9', img: 'https://picsum.photos/id/18/800/1000', url: '#', height: 1000 },
+  { id: '10', img: 'https://picsum.photos/id/19/800/1200', url: '#', height: 1200 },
+  { id: '11', img: 'https://picsum.photos/id/20/800/900', url: '#', height: 900 },
+  { id: '12', img: 'https://picsum.photos/id/21/800/1100', url: '#', height: 1100 },
+  { id: '13', img: 'https://picsum.photos/id/22/800/1000', url: '#', height: 1000 },
+  { id: '14', img: 'https://picsum.photos/id/23/800/800', url: '#', height: 800 },
+  { id: '15', img: 'https://picsum.photos/id/24/800/1200', url: '#', height: 1200 },
+];

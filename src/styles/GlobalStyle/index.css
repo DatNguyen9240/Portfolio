@@ -87,6 +87,28 @@ body {
   }
 }
 
+/* Custom Scrollbar */
+/* For Webkit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 10px;
+  border: 3px solid #eef2ff;
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #eef2ff;
+}
+
 /*
   Nếu bạn muốn một vùng cụ thể cuộn độc lập, ví dụ vùng content:
   <div className="h-screen overflow-y-auto">...</div>
