@@ -4,9 +4,9 @@ type Props = {
 
 export default function Loading({ size = 100 }: Props) {
   return (
-    <div className="fixed inset-0 bg-white/80 z-50 h-full w-full flex items-center justify-center">
+    <div className="flex items-center justify-center min-h-screen">
       <img
-        src="/assets/logo/logo.png"
+        src="/assets/logos/logo2.png"
         alt="logo"
         width={size}
         height={size}

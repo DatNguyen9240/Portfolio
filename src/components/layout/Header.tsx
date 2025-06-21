@@ -1,6 +1,7 @@
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '#', active: true },
@@ -10,12 +11,13 @@ const NAV_ITEMS = [
 ];
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   const backgroundColor = useTransform(
     scrollY,
     [300, 400],
-    ['rgba(10, 10, 10, 0)', 'rgba(10, 10, 10, 0.5)']
+    ['rgba(255, 255, 255, 0)', 'rgba(255, 255, 255, 0.5)']
   );
 
   const backdropFilter = useTransform(scrollY, [300, 400], ['blur(0px)', 'blur(8px)']);
@@ -35,19 +37,69 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between py-6 px-8">
         <Logo />
-        <nav className="flex items-center gap-8">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className={`text-lg font-medium transition-colors ${item.active ? 'text-cyan-400' : 'text-white hover:text-cyan-400'}`}
+              className={`text-lg font-medium transition-colors ${
+                item.active ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
+              }`}
             >
               {item.label}
             </a>
           ))}
           <Button className="ml-6 px-8 py-2 text-lg">Contact</Button>
         </nav>
+        {/* Mobile Menu Button */}
+        <div className="md:hidden z-30">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <svg
+              className="w-6 h-6 text-gray-800"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d={!isMenuOpen ? 'M4 6h16M4 12h16m-7 6h7' : 'M6 18L18 6M6 6l12 12'}
+              ></path>
+            </svg>
+          </button>
+        </div>
       </div>
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.nav
+            className="md:hidden absolute top-0 left-0 w-full bg-white shadow-lg pt-24 pb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="flex flex-col items-center gap-4">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`block py-2 text-lg font-medium transition-colors ${
+                    item.active ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)} // Close menu on click
+                >
+                  {item.label}
+                </a>
+              ))}
+              <Button className="mt-4 px-8 py-2 text-lg">Contact</Button>
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

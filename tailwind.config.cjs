@@ -13,6 +13,14 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			'bright': {
+  				'gradient-start': '#eef2ff',
+  				'gradient-end': '#ffffff',
+  			},
+  			'hero': {
+  				'gradient-start': '#2563eb',
+  				'gradient-end': '#7c3aed',
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

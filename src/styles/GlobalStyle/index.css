@@ -11,10 +11,11 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #0f102a, #1c0f1c);
+  background: linear-gradient(to bottom, #eef2ff, #ffffff);
   min-height: 100vh;
-  color: white;
+  color: #1f2937;
   font-family: 'Orbitron', sans-serif; /* hoặc font giống trong hình */
+  overflow-x: hidden;
 }
 
 .font-baloo {
