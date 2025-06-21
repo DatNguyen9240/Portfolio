@@ -5,7 +5,7 @@ export default function MainLayout() {
   return (
     <div>
       <Header />
-      <main className="flex-grow p-6 bg-gradient-to-b">
+      <main className="flex-grow bg-gradient-to-b">
         <Outlet />
       </main>
     </div>
