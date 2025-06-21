@@ -9,6 +9,7 @@ import { routeMenuConfig } from '@/config/menu';
 const Home = lazy(() => import('@/pages/Home'));
 const Login = lazy(() => import('@/pages/Auth/Login'));
 const Register = lazy(() => import('@/pages/Auth/Register'));
+const Portfolio = lazy(() => import('@/pages/Portfolio'));
 
 export const RouterConfig = () => {
   return createBrowserRouter([
@@ -20,6 +21,10 @@ export const RouterConfig = () => {
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: 'portfolio',
+          element: <Portfolio />,
         },
         ...routeMenuConfig
           .filter((r) => r.path !== '/')

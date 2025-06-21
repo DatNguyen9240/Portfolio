@@ -2,17 +2,19 @@ import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const NAV_ITEMS = [
-  { label: 'Home', href: '#', active: true },
-  { label: 'About', href: '#' },
-  { label: 'Services', href: '#' },
-  { label: 'Portfolio', href: '#' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Portfolio', href: '/portfolio' },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const location = useLocation();
 
   const backgroundColor = useTransform(
     scrollY,
@@ -40,15 +42,17 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
               className={`text-lg font-medium transition-colors ${
-                item.active ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
+                location.pathname === item.href
+                  ? 'text-blue-600'
+                  : 'text-gray-800 hover:text-blue-600'
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <Button className="ml-6 px-8 py-2 text-lg">Contact</Button>
         </nav>
@@ -84,16 +88,18 @@ const Header = () => {
           >
             <div className="flex flex-col items-center gap-4">
               {NAV_ITEMS.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.href}
                   className={`block py-2 text-lg font-medium transition-colors ${
-                    item.active ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
+                    location.pathname === item.href
+                      ? 'text-blue-600'
+                      : 'text-gray-800 hover:text-blue-600'
                   }`}
                   onClick={() => setIsMenuOpen(false)} // Close menu on click
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <Button className="mt-4 px-8 py-2 text-lg">Contact</Button>
             </div>
