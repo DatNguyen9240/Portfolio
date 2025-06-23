@@ -36,7 +36,7 @@ const itemVariants = {
 
 export function BrandsSection() {
   return (
-    <section className="py-24 sm:py-32">
+    <section className="section-bg py-24 sm:py-32">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -45,13 +45,13 @@ export function BrandsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Trusted by{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-hero-gradient-start to-hero-gradient-end">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-hero-gradient-start to-hero-gradient-end dark:from-blue-400 dark:to-purple-500">
               Leading Brands
             </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto dark:text-gray-300 text-gray-600">
             Join thousands of companies already using our AI-powered solutions
           </p>
         </motion.div>
@@ -72,12 +72,14 @@ export function BrandsSection() {
                 y: -5,
                 transition: { type: 'spring' as const, stiffness: 300, damping: 10 },
               }}
-              className="group flex flex-col items-center justify-center p-6 bg-white rounded-xl shadow-md border border-gray-100 transition-all duration-300 hover:shadow-xl hover:border-transparent"
+              className="group flex flex-col items-center justify-center p-6 bg-white dark:bg-[#15182e] rounded-xl shadow-md dark:shadow-lg border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:shadow-xl hover:border-transparent"
             >
               <div className="text-4xl mb-3 transition-transform duration-300 group-hover:scale-110">
                 {brand.logo}
               </div>
-              <span className="text-gray-700 text-sm font-semibold">{brand.name}</span>
+              <span className="text-gray-700 dark:text-gray-200 text-sm font-semibold">
+                {brand.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>
