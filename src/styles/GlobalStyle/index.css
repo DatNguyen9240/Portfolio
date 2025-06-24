@@ -128,3 +128,31 @@ html {
   Nếu bạn muốn một vùng cụ thể cuộn độc lập, ví dụ vùng content:
   <div className="h-screen overflow-y-auto">...</div>
 */
+
+/* Marquee Animations for BrandsSection */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.paused-marquee {
+  animation-play-state: paused !important;
+}
