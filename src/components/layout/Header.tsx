@@ -1,7 +1,7 @@
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitch from '@/components/ui/ThemeSwitch';
 
@@ -16,12 +16,20 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const backdropFilter = useTransform(scrollY, [300, 400], ['blur(0px)', 'blur(8px)']);
 
   return (
     <motion.header
-      className="section-bg w-full sticky top-0 z-20 backdrop-blur-md"
+      className={`w-full sticky top-0 z-20 backdrop-blur-md 
+        ${scrolled ? 'bg-white/50 dark:bg-gray-900/50' : 'bg-[#eef2ff]/80 dark:bg-[#15182e]'}`}
       style={{
         backdropFilter,
         WebkitBackdropFilter: backdropFilter,
