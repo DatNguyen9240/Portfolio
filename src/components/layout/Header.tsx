@@ -1,7 +1,7 @@
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitch from '@/components/ui/ThemeSwitch';
 
@@ -16,27 +16,19 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const location = useLocation();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const backdropFilter = useTransform(scrollY, [300, 400], ['blur(0px)', 'blur(8px)']);
 
   return (
     <motion.header
-      className={`w-full sticky top-0 z-20 transition-colors duration-300 backdrop-blur-md 
-        ${scrolled ? 'bg-white/50 dark:bg-gray-900/50' : 'bg-[#eef2ff]/80 dark:bg-[#15182e]'}`}
+      className="section-bg w-full sticky top-0 z-20 backdrop-blur-md"
       style={{
         backdropFilter,
         WebkitBackdropFilter: backdropFilter,
       }}
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'tween', duration: 0.7 }}
+      transition={{ y: { type: 'tween', duration: 0.7 }, opacity: { duration: 0.7 } }}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between py-6 px-8">
         <Logo />
