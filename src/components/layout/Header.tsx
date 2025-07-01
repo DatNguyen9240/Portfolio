@@ -1,7 +1,7 @@
 import { Logo } from '@/components/ui/Logo';
 import { Button } from '@/components/ui/Button';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitch from '@/components/ui/ThemeSwitch';
 
